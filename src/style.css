@@ -23,3 +23,19 @@
       }
       .row.content {height: auto;} 
     }
+    
+    mark {
+      background-color: yellow;
+      color: black;
+      font-weight: bold;
+    }
+    p.notes {
+      font-size: 12px;
+      font-style: italic;
+      padding-top: 15px;
+    }
+    
+    .sentences {
+
+      font-size: 16px;
+    }

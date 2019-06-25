@@ -3,27 +3,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import _ from 'lodash';
+import Highlighted from './Highlighted';
 
 
-
-const Highlighted = ({sentence = '', highlight = ''}) => {
-
-   const text = sentence.toString();
-
-   if (!highlight.trim()) {
-     return <span>{text}</span>
-   }
-   const regex = new RegExp(`(${_.escapeRegExp(highlight)})`, 'gi')
-   const parts = text.split(regex)
-   return (
-     <span>
-        {parts.filter(part => part).map((part, i) => (
-            regex.test(part) ? <mark key={i}>{part}</mark> : <span key={i}>{part}</span>
-        ))}
-    </span>
-   )
-}
 
 
 class ListView extends Component {
@@ -33,24 +15,20 @@ class ListView extends Component {
   renderList() {
     return this.props.items.map((item,index) => {
       return (
-        <div   key={item.doc_id} >
-          <h4>{item.book_info.book_title} by {item.book_info.book_author}, {item.book_info.book_year} </h4>
-          {item.sentences.map((sentence,index)=>{
-              return (
-              
-              <div  key = {item.doc_id.toString() + index.toString()} className="well well-sm">                      
+        <div   key={index}  className="well well-sm">                      
                 
-               <Highlighted key={index} sentence={sentence} highlight={this.props.search} />
+               <Highlighted key={item.book_id + item.sent_num + 'h'} text={item.sent_content} highlight={this.props.search} />
+               <p className = "notes" key={item.book_id + item.sent_num + 'n'}>
+               Book Title: {item.book_title}, Author: {item.book_author}, Year of Publication: {item.book_year}
+               </p>
 
-
-              </div>
+         </div>
 
                     
-              )
-          })}
-        </div>
-    );
-  })};
+      )
+    })};
+       
+
 
   render() {
     return (
