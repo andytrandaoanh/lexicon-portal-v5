@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import '../style.css';
-import TopNavigation from './shared/';
-import MainWindow from './main/';
-import BookWindow from './book/index.js';
-import ExcerptWindow from './excerpt/';
+import TopNavigation from './nav';
+import MainWindow from './main';
+import BookWindow from './book';
+import ExcerptWindow from './excerpt';
 
 
 function App () {
