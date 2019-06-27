@@ -1,8 +1,8 @@
 
 import React from 'react';
-import SearchForm from './SearchForm.jsx';
-import ListSearch from './ListSearch.jsx';
-import ListView from './ListView.jsx';
+import SearchForm from './SearchForm';
+import ListSearch from './ListSearch';
+import ListView from './ListView';
 
 
 class MainWindow extends React.Component {

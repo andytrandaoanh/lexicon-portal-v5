@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectWord } from "../actions/index";
+import { selectWord } from "../../actions/index";
 import { bindActionCreators } from "redux";
 
 class ListSearch extends Component {

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { connect } from "react-redux";
-import { searchWord } from "../actions";
+import { searchWord } from "../../actions";
 
 function mapDispatchToProps(dispatch) {
   return {

@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -19,10 +19,9 @@ function TopNavigation() {
       </div>
       <div className="collapse navbar-collapse" id="myNavbar">
         <ul className="nav navbar-nav">
-          <li className="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Gallery</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><NavLink to="/">Home</NavLink></li>
+          <li><NavLink to="/book">Books</NavLink></li>
+          <li><NavLink to="/excerpt">Excerpts</NavLink></li>
         </ul>
         <ul className="nav navbar-nav navbar-right">
           <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
