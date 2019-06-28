@@ -1,14 +1,27 @@
-/*
- * action types
- */
 import axios from 'axios';
 
 export const SEARCH_WORD = "SEARCH_WORD";
 export const SELECT_WORD = "SELECT_WORD";
+export const LOAD_BOOKS = "LOAD_BOOKS";
+export const SELECT_BOOK = "SELECT_BOOK";
+export const SAVE_BOOK_EDIT = "SAVE_BOOK_EDIT";
 
-/*
- * action creators
- */
+
+export const saveBookEdit = (bookID) => {
+  return ({type: SAVE_BOOK_EDIT, payload: bookID})
+}
+
+
+export const selectBook = (bookID) => {
+  return ({type: SELECT_BOOK, payload: bookID})
+}
+
+export const loadBooks = () => async dispatch => {
+	const response = await axios.get("http://localhost:5000/books");
+	//console.log(response);
+  dispatch({type: LOAD_BOOKS, payload: response.data})
+};
+
 
 
 export const searchWord = (word) => async dispatch => {
@@ -25,10 +38,4 @@ export const selectWord = (word) => async dispatch => {
   dispatch({type: SELECT_WORD, payload: payload})
 };
 
-
-/*
-export const selectWord = (word) => {
-	return {type: SELECT_WORD, payload: word};
-};
-*/
 

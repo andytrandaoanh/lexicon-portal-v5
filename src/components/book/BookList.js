@@ -1,41 +1,25 @@
-import React from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { loadBooks, selectBook } from "../../actions";
+import { bindActionCreators } from "redux";
+
+
 
 class BookList extends React.Component {
 
 	constructor(props) {
 	    super(props);
-	    this.state = {
-	    	books: [],
-	    	isLoaded: false,
-	    	error: null
-	    };
-  	}
+	}
 
   	componentDidMount() {
-  		axios.get('http://localhost:5000/books')
-  		.then(response => {
-    	// handle success
-    		//console.log(response);
-    		this.setState({
-    			books: response.data,
-    			isLoaded: true
-    		});
-    		
-  		})
-  		.catch(error => {
-    	// handle error
-    		this.setState({
-    			isLoaded: false,
-    			error: error
-    		});
-    		
-  		})
+  		this.props.loadBooks()
   	}
 
 
   	render() {
-  		const {books, isLoaded, error} = this.state;
+  		
+  		const { error, loading, items, selectBook } = this.props;
+
   		return (
 
   			<div className="table-responsive">
@@ -46,18 +30,24 @@ class BookList extends React.Component {
 					      	<th scope="col">Book Title</th>
 					      	<th scope="col">Book Author</th>
 					      	<th scope="col">Year</th>
+					      	<th scope="col">Edit</th>
 					    </tr>
 					 </thead>
 				  	<tbody>
 				  		
 			  				
-		  				{books.map((book, index)=>{
+		  				{items.map((item, index)=>{
 		  					return (
 		  						<tr key={index}>
-			  						<th scope="row">{book.book_id}</th>
-			  						<td>{book.book_title}</td>
-			  						<td>{book.book_author}</td>
-			  						<td>{book.book_year}</td>
+			  						<th scope="row">{item.book_id}</th>
+			  						<td>{item.book_title}</td>
+			  						<td>{item.book_author}</td>
+			  						<td>{item.book_year}</td>
+			  						<td><button 
+			  							type="button" 
+			  							className="btn btn-warning"
+			  							onClick={() => selectBook(item.book_id)}
+			  							>Edit</button></td>
 		  						</tr>
 		  					)
 		  				})}
@@ -74,4 +64,23 @@ class BookList extends React.Component {
 	}
 }
 
-export default BookList;
+
+
+const mapStateToProps = state => ({
+    items: state.bookReducer.items,
+    loading: state.bookReducer.loading,
+    error: state.bookReducer.error
+});
+
+
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+  	{ selectBook,
+  	  loadBooks
+  	}, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
+
+
