@@ -1,7 +1,15 @@
 import React from 'react';
 
 class BookView extends React.Component {
+	constructor(props) {
+	    super(props);
+	    this.state = {
+	    	books: [],
+	    	isLoaded: false
+	    };
+  	}
 
+  	
   	render() {
 
   		  return (
@@ -11,6 +19,7 @@ class BookView extends React.Component {
 		 )
 
 	}
+	
 }
 
 export default BookView;
