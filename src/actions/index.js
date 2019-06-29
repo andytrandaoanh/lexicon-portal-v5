@@ -5,11 +5,41 @@ export const SELECT_WORD = "SELECT_WORD";
 export const LOAD_BOOKS = "LOAD_BOOKS";
 export const SELECT_BOOK = "SELECT_BOOK";
 export const SAVE_BOOK_EDIT = "SAVE_BOOK_EDIT";
+export const SAVE_BOOK_EDIT_SUCCESS = "SAVE_BOOK_SUCCESS";
+export const SAVE_BOOK_EDIT_FAILURE = "SAVE_BOOK_FAILURE";
+export const SAVE_BOOK_NEW = "SAVE_BOOK_NEW";
+export const SAVE_BOOK_NEW_SUCCESS = "SAVE_BOOK_NEW_SUCCESS";
+export const SAVE_BOOK_NEW_FAILURE = "SAVE_BOOK_NEW_FAILURE";
 
 
-export const saveBookEdit = (bookID) => {
-  return ({type: SAVE_BOOK_EDIT, payload: bookID})
+export const saveBookNew = (bookData) =>  dispatch => {
+
+  axios.post('http://localhost:5000/book/new', bookData)
+  .then(function (response) {
+    dispatch ({type: SAVE_BOOK_NEW_SUCCESS, payload: response.data});
+  })
+  .catch(function (error) {
+    dispatch ({type: SAVE_BOOK_NEW_FAILURE, payload: error})
+  });
+
 }
+
+
+
+
+export const saveBookEdit = (bookData) =>  dispatch => {
+
+  axios.post('http://localhost:5000/book/update', bookData)
+  .then(function (response) {
+    dispatch ({type: SAVE_BOOK_EDIT_SUCCESS, payload: response.data});
+  })
+  .catch(function (error) {
+    dispatch ({type: SAVE_BOOK_EDIT_FAILURE, payload: error})
+  });
+
+}
+
+
 
 
 export const selectBook = (bookID) => {
