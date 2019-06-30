@@ -12,13 +12,11 @@ class BookWindow extends React.Component {
 		        <div className="row content">
 
 		          
-			        <div className="col-sm-9">
+			        <div className="col-sm-8">
 			             
 			            <BookList />
 			        </div>   
-		          <div className="col-sm-3 sidenav">
-		            <h2><small>Books</small></h2>
-		            
+		          <div className="col-sm-4 sidenav">	            
 		              <BookForm />
 		   			</div>
 		    	
