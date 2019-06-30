@@ -33,9 +33,6 @@ export default function bookReducer(state = initialState, action) {
 		    ...state,
 		    saveEdit: action.payload
 		  };
-	
-
-
 
 	default:
 		return state;
