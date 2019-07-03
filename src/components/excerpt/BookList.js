@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loadBooks, selectBook } from "../../actions/books";
+import { loadBooks} from "../../actions/books";
+import { loadDefaultQuotes} from "../../actions/quotes";
 import { bindActionCreators } from "redux";
 
 
@@ -17,7 +18,7 @@ class BookList extends React.Component {
 
   	render() {
 
-  		const { error, loading, items, selectBook } = this.props;
+  		const { error, loading, items, loadDefaultQuotes } = this.props;
 
   		  return (
     
@@ -29,7 +30,7 @@ class BookList extends React.Component {
 							type="button" 
 							className="btn btn-default" 
 							key={index}
-							onClick={() => selectBook(item.book_id)} >
+							onClick={() => loadDefaultQuotes(item.book_id)} >
 							{item.book_title}
 							</button>
 
@@ -57,7 +58,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
-  	{ selectBook,
+  	{ loadDefaultQuotes,
   	  loadBooks
   	}, dispatch);
 };
