@@ -1,13 +1,7 @@
 
 import React from 'react';
 import { connect } from "react-redux";
-import { searchWord } from "../../actions";
-
-function mapDispatchToProps(dispatch) {
-  return {
-    searchWord: word => dispatch(searchWord(word))
-  };
-}
+import { searchWord } from "../../actions/words";
 
 
 class ConnectedForm extends React.Component {
@@ -72,6 +66,14 @@ class ConnectedForm extends React.Component {
       );
    }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    searchWord: word => dispatch(searchWord(word))
+  };
+}
+
+
 
 const SearchForm = connect(null, mapDispatchToProps)(ConnectedForm);
 export default SearchForm;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class BookView extends React.Component {
+class ExcerptView extends React.Component {
 
   	render() {
 
@@ -13,4 +13,4 @@ class BookView extends React.Component {
 	}
 }
 
-export default BookView;
+export default ExcerptView;

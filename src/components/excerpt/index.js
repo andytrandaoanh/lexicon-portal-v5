@@ -1,6 +1,6 @@
 import React from 'react';
 import BookList from './BookList';
-import BookView from './BookView';
+import ExcerptView from './ExcerptView';
 
 
 class ExcerptWindow extends React.Component {
@@ -12,17 +12,17 @@ class ExcerptWindow extends React.Component {
     
 		    <div className="container-fluid">
 		        <div className="row content">
-		          <div className="col-sm-3 sidenav">
+		          <div className="col-sm-4 sidenav">
 		            <h2><small>Books</small></h2>
 		            
-		              <BookView />
+		              <BookList />
 		   			</div>
 		    	
 		   		
 		          
-			        <div className="col-sm-9">
+			        <div className="col-sm-8">
 			             
-			            <BookList />
+			            <ExcerptView />
 			        </div>   
 		        
 		        </div>

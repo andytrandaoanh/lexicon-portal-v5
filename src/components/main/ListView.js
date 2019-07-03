@@ -44,8 +44,8 @@ class ListView extends Component {
 function mapStateToProps(state) {
   // Whatever is returned will show up as props inside Component
   return {
-    items: state.sentencesReducer.items,
-    search: state.sentencesReducer.search
+    items: state.documentReducer.items,
+    search: state.documentReducer.search
   };
 };
 

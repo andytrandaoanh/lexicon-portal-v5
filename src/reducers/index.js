@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
-import sentencesReducer from './sentencesReducer';
-import wordsReducer from './wordsReducer';
+import quoteReducer from './quoteReducer';
+import wordReducer from './wordReducer';
 import bookReducer from './bookReducer';
-
+import documentReducer from './documentReducer';
 
 export default combineReducers({
-  wordsReducer,
-  sentencesReducer,
-  bookReducer
+  wordReducer,
+  quoteReducer,
+  bookReducer,
+  documentReducer
 });

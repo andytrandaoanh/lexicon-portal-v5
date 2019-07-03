@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { saveBookEdit, saveBookNew } from "../../actions";
+import { saveBookEdit, saveBookNew } from "../../actions/books";
 import { bindActionCreators } from "redux";
 
 

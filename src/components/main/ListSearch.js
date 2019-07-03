@@ -1,8 +1,6 @@
-// src/components/ListSearch.jsx
-
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectWord } from "../../actions";
+import { selectWord } from "../../actions/words";
 import { bindActionCreators } from "redux";
 
 class ListSearch extends Component {
@@ -12,6 +10,7 @@ class ListSearch extends Component {
     return this.props.items.map((item,index) => {
       return (
         <button
+          className = "btn btn-default"
           key={index}
           onClick={() => this.props.selectWord(item.word_form)}
         >
@@ -34,7 +33,7 @@ function mapStateToProps(state) {
   // Whatever is returned will show up as props
   // inside of BookList
   return {
-    items: state.wordsReducer.items
+    items: state.wordReducer.items
   };
 };
 

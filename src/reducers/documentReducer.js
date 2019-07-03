@@ -9,7 +9,7 @@ const initialState = {
   search: ''
 };
 
-export default function wordsReducer(state = initialState, action) {
+export default function documentReducer(state = initialState, action) {
   switch(action.type) {
     case SELECT_WORD:
      //console.log(action);
@@ -19,6 +19,7 @@ export default function wordsReducer(state = initialState, action) {
 		    items: action.payload.payload,
 		    search: action.payload.search
 		  };
+
 	default:
 		return state;
 
