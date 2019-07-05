@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loadBooks, selectBook } from "../../actions/books";
+import { loadBooks, selectBook } from "../../actions/books.js";
 import { bindActionCreators } from "redux";
 
 
@@ -10,6 +10,7 @@ class BookList extends React.Component {
 	constructor(props) {
 	    super(props);
 	}
+
 
   	componentDidMount() {
   		this.props.loadBooks()

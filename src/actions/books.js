@@ -16,7 +16,7 @@ export const saveBookNew = (bookData) =>  dispatch => {
     dispatch ({type: SAVE_BOOK_NEW_FAILURE, payload: error})
   });
 
-}
+};
 
 
 
@@ -31,14 +31,15 @@ export const saveBookEdit = (bookData) =>  dispatch => {
     dispatch ({type: SAVE_BOOK_EDIT_FAILURE, payload: error})
   });
 
-}
+};
 
 
 
 
 export const selectBook = (bookID) => {
   return ({type: SELECT_BOOK, payload: bookID})
-}
+};
+
 
 export const loadBooks = () => async dispatch => {
 	const response = await axios.get("http://localhost:5000/books");

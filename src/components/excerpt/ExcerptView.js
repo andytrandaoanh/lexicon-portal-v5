@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import { Link } from 'react-router-dom'
 
 class ExcerptView extends React.Component {
 
 
 
   render() {
+      
 
       if (this.props.items){     
 
@@ -20,7 +21,14 @@ class ExcerptView extends React.Component {
             ))
           }
 
+
+          <Link to={`/quotes/${this.props.bookID}/1`}>
+                    View All
+          </Link>
+         
           </div>
+
+          
           
 		    )
       } else {
@@ -32,7 +40,9 @@ class ExcerptView extends React.Component {
 
 function mapStateToProps(state) {
   return {
-      items: state.quoteReducer.items
+      items: state.quoteReducer.items,
+      bookID: state.quoteReducer.bookID
+
   };
 };
 

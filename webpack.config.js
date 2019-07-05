@@ -1,12 +1,14 @@
 const path = require('path');
 const htmlPlugin = require('html-webpack-plugin');
 module.exports = {
+    mode: 'development',
     entry: path.join(__dirname, '/src/index.js'),
     output: {
 
         filename: 'bundle.js',
         path: path.join(__dirname, '/dist'),
-        chunkFilename: '[name].js'
+        chunkFilename: '[name].js',
+        publicPath: '/'
         
     },
 
@@ -15,6 +17,8 @@ module.exports = {
       historyApiFallback: true,
       contentBase: './',
       hot: true
+
+      
     },
     
     module:{
