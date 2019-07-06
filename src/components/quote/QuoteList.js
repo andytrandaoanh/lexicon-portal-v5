@@ -47,7 +47,7 @@ class QuoteList extends React.Component {
           }
 
           
-          <button type="button" className="btn btn-lg btn-primary" onClick={this.handleClick}>Next</button>
+          <button type="button" className="btn btn-lg btn-primary pull-right" onClick={this.handleClick}>Next Page</button>
           
          
           </div>
