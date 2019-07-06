@@ -1,4 +1,4 @@
-import { LOAD_DEFAULT_QUOTES, LOAD_NEXT_QUOTES, LOAD_NEXT_QUOTES_ERROR } from '../actions';
+import { LOAD_DEFAULT_QUOTES, LOAD_QUOTES_BY_INDEX } from '../actions';
 
 
 
@@ -21,7 +21,7 @@ export default function quoteReducer(state = initialState, action) {
 		    error: null
 		  };
 
-    case LOAD_NEXT_QUOTES:
+    case LOAD_QUOTES_BY_INDEX:
      //console.log(action);
 		return {
 		    ...state,
@@ -30,14 +30,7 @@ export default function quoteReducer(state = initialState, action) {
 		    error: null
 		  };
 
-    case LOAD_NEXT_QUOTES_ERROR:
-     //console.log(action);
-		return {
-		    ...state,
-		    loading: false,
-		    items: [],
-		    error: action.payload
-		  };
+
 
 
 	default:

@@ -8,25 +8,29 @@ class QuoteWindow extends React.Component {
 
 	constructor(props) {
 	    super(props);
+
+	     
 	}
 
+
   	render() {
-  		  console.log(this.props.match);
+  		  const params  =  this.props.match.params;
+  		  
+
   		  return (
     
 		    <div className="container-fluid">
 		        <div className="row content">
-		          <div className="col-sm-9 sidenav">
-		            <h2><small>Books</small></h2>
+		          <div className="col-sm-9 ">
 		            
-		              <QuoteList />
+		              <QuoteList params={{bookID: params.bookid, indexNum: params.indexnum}}/>
 		   			</div>
 		    	
 		   		
 		          
-			        <div className="col-sm-3">
+			        <div className="col-sm-3 sidenav">
 			             
-			            <QuoteDefinition />
+			            <QuoteDefinition  />
 			        </div>   
 		        
 		        </div>

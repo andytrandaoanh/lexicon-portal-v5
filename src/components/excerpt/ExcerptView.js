@@ -9,7 +9,7 @@ class ExcerptView extends React.Component {
   render() {
       
 
-      if (this.props.items){     
+      if (this.props.bookID){     
 
   		  return (
           <div>
@@ -21,10 +21,11 @@ class ExcerptView extends React.Component {
             ))
           }
 
-
-          <Link to={`/quotes/${this.props.bookID}/1`}>
+          
+          <Link className="btn btn-lg btn-primary" to={`/quotes/${this.props.bookID}/1`}>
                     View All
           </Link>
+          
          
           </div>
 

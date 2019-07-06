@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { LOAD_DEFAULT_QUOTES } from './';
+import { LOAD_DEFAULT_QUOTES, LOAD_QUOTES_BY_INDEX } from './';
 
 
 
@@ -11,8 +11,9 @@ export const loadDefaultQuotes = (bookID) => async dispatch => {
 };
 
 
-export const loadNextQuotes = (bookID, indexNumber) => async dispatch => {
-	const response = await axios.get("http://localhost:5000/quotes/book/" + bookID + "/" + indexNumber);
+export const loadQuotesByIndex = (bookID, indexNumber) => async dispatch => {
+	console.log('bookID:', bookID, 'indexNumber:', indexNumber);
+	const response = await axios.get(`http://localhost:5000/quotes/${bookID}/index/${indexNumber}`);
 	//console.log(response);
-  dispatch({type: LOAD_DEFAULT_QUOTES, payload: response.data})
+  dispatch({type: LOAD_QUOTES_BY_INDEX, payload: response.data})
 };
