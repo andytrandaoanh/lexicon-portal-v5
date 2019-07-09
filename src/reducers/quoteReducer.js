@@ -6,7 +6,8 @@ const initialState = {
   items: [],
   loading: false,
   error: null,
-  bookID: null
+  bookID: null,
+  words: []
 };
 
 export default function quoteReducer(state = initialState, action) {
@@ -26,8 +27,10 @@ export default function quoteReducer(state = initialState, action) {
 		return {
 		    ...state,
 		    loading: false,
-		    items: action.payload,
-		    error: null
+		    items: action.payload.sentences,
+		    bookID: action.payload.book_id,
+		    error: null,
+		    words: action.payload.words
 		  };
 
 

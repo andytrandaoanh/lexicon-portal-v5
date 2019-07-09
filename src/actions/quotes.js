@@ -12,7 +12,7 @@ export const loadDefaultQuotes = (bookID) => async dispatch => {
 
 
 export const loadQuotesByIndex = (bookID, indexNumber) => async dispatch => {
-	console.log('bookID:', bookID, 'indexNumber:', indexNumber);
+	//console.log('bookID:', bookID, 'indexNumber:', indexNumber);
 	const response = await axios.get(`http://localhost:5000/quotes/${bookID}/index/${indexNumber}`);
 	//console.log(response);
   dispatch({type: LOAD_QUOTES_BY_INDEX, payload: response.data})

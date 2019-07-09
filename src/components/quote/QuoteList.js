@@ -2,17 +2,24 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { loadQuotesByIndex } from "../../actions/quotes";
-import { Link } from 'react-router-dom';
+import ClickableContent from '../shared/ClickableContent';
+
 
 
 class QuoteList extends React.Component {
 
 	constructor(props) {
 	    super(props);
-      this.handleClick = this.handleClick.bind(this)
+      this.handleNextPage = this.handleNextPage.bind(this);
+      this.handleSpanClick = this.handleSpanClick.bind(this);
 	}
 
-  handleClick(){
+
+  handleSpanClick(word){
+    console.log('userclick:', word);
+  }
+
+  handleNextPage(){
 
     
     let curHref = window.location.href;
@@ -30,6 +37,26 @@ class QuoteList extends React.Component {
       this.props.loadQuotesByIndex(this.props.params.bookID, this.props.params.indexNum)
 
   }
+
+
+  processContent(){
+      return (this.props.items.map((item,index)=>(
+
+              <div key={item.sent_id + 's' + index + 'well'} className="well well-sm">
+                <div key={item.sent_id + 's' + index + 'book_content'} className="bookContents"> 
+                    <ClickableContent 
+                      key = {item.sent_id + 's' + index + 'component'}
+                      textContent = {item.sent_content} 
+                      wordList = {this.props.words}
+                      sentID = {item.sent_id}
+                      sentNum = {item.sent_num}
+                      handleClick = {this.handleSpanClick}
+                    />
+                </div>
+              </div>
+            ))
+          )
+  }
   
   render() {
 
@@ -37,20 +64,18 @@ class QuoteList extends React.Component {
 
 
   		return (
-              <div>
-            {this.props.items.map((item,index)=>(
-
-              <div key={index} className="well well-sm">
-                <div key={index + 'child'} className="bookContents"> {item.sent_content}</div>
-              </div>
-            ))
-          }
-
+        <div>
+            
+          {this.processContent()}
           
-          <button type="button" className="btn btn-lg btn-primary pull-right" onClick={this.handleClick}>Next Page</button>
+          <button type="button" 
+            className="btn btn-lg btn-primary pull-right" 
+            onClick={this.handleNextPage}>
+            Next Page
+          </button>
           
          
-          </div>
+        </div>
       )
 
 	}
@@ -59,7 +84,10 @@ class QuoteList extends React.Component {
 const mapStateToProps = state => ({
     items: state.quoteReducer.items,
     loading: state.quoteReducer.loading,
-    error: state.quoteReducer.error
+    bookID : state.quoteReducer.bookID,
+    error: state.quoteReducer.error,
+    words: state.quoteReducer.words
+
 });
 
 

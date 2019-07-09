@@ -47,6 +47,7 @@
     "react-highlighter": "^0.4.3",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "uuid": "^3.3.2"
   }
 }

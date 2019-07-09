@@ -55,7 +55,9 @@ const Highlighted = ({text = '', highlight = ''}) => {
    return (
 
          <div>{elements.map((element, index) => (
-            <span className = "sentences" key={index}>{element.prefix}<mark>{highlight}</mark>{element.suffix}</span>
+            <span className = "sentences" 
+            key={index}>{element.prefix}<mark>{highlight}</mark>
+            {element.suffix}</span>
           ))}
 
           </div>

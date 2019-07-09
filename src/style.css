@@ -47,3 +47,10 @@
       font-size: 24px;
 
     }
+
+
+    .clickableSpan:hover{
+      background-color: yellow;
+      color: black;
+      
+    }

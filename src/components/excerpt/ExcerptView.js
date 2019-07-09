@@ -22,7 +22,7 @@ class ExcerptView extends React.Component {
           }
 
           
-          <Link className="btn btn-lg btn-primary pull-right" to={`/quotes/${this.props.bookID}/1`}>
+          <Link className="btn btn-lg btn-primary pull-right" to={`/quotes/${this.props.bookID}/0`}>
                     View Pages
           </Link>
           
