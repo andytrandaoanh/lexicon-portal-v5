@@ -54,3 +54,28 @@
       color: black;
       
     }
+
+
+    span.def_phonetic {
+      font-size: 18px;
+      color: gray;
+    }
+
+
+    span.def_headword {
+      font-size: 22px;
+      
+    }
+
+
+    span.def_category {
+      font-size: 18px;
+      color: green;
+      
+    }
+
+
+     p.def_content {
+      font-size: 18px;
+      font-family: Georgia;
+    }

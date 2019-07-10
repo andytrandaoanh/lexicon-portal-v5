@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { loadQuotesByIndex } from "../../actions/quotes";
+
 
 class QuoteDefinition extends React.Component {
 
@@ -10,27 +10,36 @@ class QuoteDefinition extends React.Component {
 	}
 
 
-
   	render() {
-
-  		//console.log(this.props.words)
-  		
 
   		return (
 
-            <div>
+         <div>
+            {this.props.items.map((item, index)=>(
 
-              Definitions       
-          	</div>
+              <div key={item.defid + 'ctn'}>
+
+                <span className ='def_headword' key={item.defid + 'hw'}>{item.word}</span>
+                <span className ="def_phonetic" key={item.defid + 'ph'}> {item.phonetic} </span>
+                <span className ="def_category" key={item.defid + 'cat'}>{item.category}</span>
+                <p className="def_content" key={item.defid + 'def'}>{item.definition} </p>
+
+
+              </div>
+              
+            ))
+
+          }
+        </div>
+                         	
   		)
 
 	}
 }
 
 const mapStateToProps = state => ({
-    words: state.quoteReducer.words.sort((a, b) => (a.sent_num > b.sent_num) ? 1 : -1),
-    bookID : state.quoteReducer.bookID
-
+    items: state.definitionReducer.items
+   
 
 });
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { loadQuotesByIndex } from "../../actions/quotes";
+import { fetchDefinitions } from "../../actions/definitions";
 import ClickableContent from '../shared/ClickableContent';
 
 
@@ -15,8 +16,9 @@ class QuoteList extends React.Component {
 	}
 
 
-  handleSpanClick(word){
-    console.log('userclick:', word);
+  handleSpanClick(objWord){
+    //console.log('userclick:', objWord.content);
+    this.props.fetchDefinitions(objWord.content);
   }
 
   handleNextPage(){
@@ -94,7 +96,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
-  	{ loadQuotesByIndex
+  	{ loadQuotesByIndex,
+      fetchDefinitions
   	}, dispatch);
 };
 
